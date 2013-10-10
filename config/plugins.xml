@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root>
+	<Plugin>
+		<name>SVN</name>
+		<jarfile>SVNPlugin.jar</jarfile>
+		<pyfile>SVNPlugin.py</pyfile>
+		<status>enabled</status>
+		<property>
+			<propname>default_operation</propname>
+			<propvalue>update</propvalue>
+		</property>
+		<property>
+			<propname>tag</propname>
+			<propvalue>tag</propvalue>
+		</property>
+		<property>
+			<propname>snapshot</propname>
+			<propvalue>snapshot</propvalue>
+		</property>
+		<property>
+			<propname>server</propname>
+			<propvalue>server</propvalue>
+		</property>
+		<property>
+			<propname>password</propname>
+			<propvalue>password</propvalue>
+		</property>
+		<property>
+			<propname>username</propname>
+			<propvalue>user</propvalue>
+		</property>
+	</Plugin>
+
+	<Plugin>
+		<name>GITPlugin</name>
+		<jarfile>GITPlugin.jar</jarfile>
+		<pyfile>GITPlugin.py</pyfile>
+		<status>enabled</status>
+		<property>
+			<propname>path</propname>
+			<propvalue>/home/tscguest/teste</propvalue>
+		</property>
+	</Plugin>
+
+	<Plugin>
+		<name>PacketSnifferPlugin</name>
+		<jarfile>PacketSnifferPlugin.jar</jarfile>
+		<pyfile>PacketSnifferPlugin.py</pyfile>
+		<status>enabled</status>
+		<property>
+			<propname>historyLength</propname>
+			<propvalue>4000</propvalue>
+		</property>
+		<property>
+			<propname>packetsBuffer</propname>
+			<propvalue>400</propvalue>
+		</property>
+	</Plugin>
+
+	<Plugin>
+		<name>Jenkins</name>
+		<jarfile>JenkinsPlugin.jar</jarfile>
+		<pyfile>JenkinsPlugin.py</pyfile>
+		<status>disabled</status>
+		<property>
+			<propname>script</propname>
+			<propvalue>/home/user/jenkins/build_script.sh</propvalue>
+		</property>
+		<property>
+			<propname>tests</propname>
+			<propvalue>/home/user/twister/config/testsuites.xml</propvalue>
+		</property>
+	</Plugin>
+
+	<Plugin>
+		<name>ClearCase</name>
+		<jarfile>ClearCasePlugin.jar</jarfile>
+		<pyfile>ClearCasePlugin.py</pyfile>
+		<status>disabled</status>
+	</Plugin>
+</Root>

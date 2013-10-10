@@ -1,0 +1,386 @@
+04th October
+
+- added more support for ClearCase ( mkview, mkelem, rmelem, mklabel, mkattr, describe )
+- ClearCase erros displayed in GUI
+- Fixed empty values when exporting / importing resources as XML.
+- Fixed the installers to backup the config folders correctly
+
+27th September 
+
+- added ClearCase built-in plugin
+- a new variable twister_tc_revision can be saved into DB
+- fix for issue #94; nested configurations can be retrieved in test cases
+- Implemented more variables inside e-mail subject and body, after the tests are run
+    twister_user
+    twister_ce_hostname
+    twister_ce_ip
+    twister_ce_os
+    twister_ce_python_revision
+    twister_ce_type
+    twister_ep_hostname
+    twister_ep_ip
+    twister_ep_os
+    twister_ep_python_revision
+    twister_pf_fname
+    twister_rf_fname
+    twister_server_location
+- updated userGuide
+- updated Plugins document
+
+20th September
+
+- fixed a bug with user groups, when creating new users.
+- CE logs are displayed in the GUI; issue #14
+- Fixed installer client and server when the twister repo is located in
+  an admin folder; issue #92
+- fixed speeling error for snapshot view in GIT plugin
+- fixed test case properties editing; issue #85
+- implemented copy/paste in sut/TB; issue #93
+- implemented import/export XML->JSON for SUT and TB
+ 
+
+13th September
+
+- changes for secondary libraries; there is no need to use syntax
+    from ce_libs import <my_library>
+  in test cases to get the library's methods
+- added a folder category in reporting to be able to group the reports
+- the project name is available as an internal variable to be saved in DB
+- added a mechanism to cache the NIS users when server starts; the list
+  of users is updated every hour by the server
+- added description files for all plugins
+- changed users_and_groups.ini file to have groups_development and 
+  groups_production
+- fixed issue #89 - all configuration panels display panel name
+- fixed issue #85 - fixed editing test case property
+- updated user guide
+- update plugins&libraries document
+
+
+6th September
+
+- changes in SUT definition; every component under a SUT has an abstract name
+  that can be referred by the test cases
+- user management changes; the name of a new user can be added as text or
+  selected from a list of available users; the username is validated using
+  ypmatch for NIS environments; issue #90 in github
+- added new role CHANGE_SUT; if this role is not selected for production
+  servers, the user is not allowed to change the SUT
+- fixed a LogServer issue for log_summary; it was happening only for NIS users
+- fix for issue#91 ; secondary libraries are loaded
+- fix issue #70 ; plugins can be loaded
+- updated User Guide
+
+30th August
+
+- added new button to define System Under Test (SUT); the EP is associated with 
+  SUT; the test bed has no associated EP anymore
+- the test case(s) can have an associated configuration file
+- issue #57 - SSH_twist demo crashes
+- issue #60 - Takes 5 minutes for Reports tab to return control to user.
+- issue #68 - GUI error_codes mapping not correct.
+- issue #71 - email warnings misplaced, could be more specific
+- issue #77 - Email not working, CLI logs exceptions and internal command 
+              failure trying to kill Log Server.
+- issue #78 - Request Error message if user/twister not installed
+- issue #79 - PanicDetect is not fully functional
+- issue #80 - Global param checked "Stop on fail" not working;
+- issue #81 - Library selection and de-selection not behaving as expected
+- issue #82 - User Guide 8 - "How to run the test files" missing Icon for Timeout
+- issue #84 - Stop button does not clean-up test status
+- issue #86 - Twister server upgrade fails
+- added 2 new variables ( twister_ce_type, twister_server_location )
+- rework on User Guide
+
+23rd August
+
+- added new button for "Test Configurations" in Configuration tab
+- fix for issue #33 ; the project file can be saved even if an EP is not assigned
+- fix for issue #65 ; GUI is ok for small screen resolution
+- fix for issue #67 ; saving in email.xml is fine
+- fix for issue #68 ; corrected the counter for pending
+- fix for issue #69 ; clear log is working
+- fix for issue #72 ; when configuration is change the Project switch to edit mode
+- fix for issue #73 ; user can change the name of CLI.log and the new name is used
+- fix for issue #76 ; database password reloaded correctly
+- fixed panic detection mechanism
+- reorganised the order of tetxt boxes in Configuration->Paths
+- updated smoke test cases with more details
+- added some backend code for clearcase plugin; GUI to be added
+- Added VIEW_REPORTS role for users.
+
+16th August
+
+- fix for issue #64; error message fixed and email text box widen 
+- code changes to sanitize the input parameters for issue #63
+- fixed the spelling mistakes for issue #62
+- fixed issue #39
+- fix for de-queue issue #37
+- code changes in LogServer.py to set the python version to 2.7
+- changes in GUI to fix issues with Internet Explorer
+- implemented a timeout in GUI to avoid freezing when the server is not responding
+- updates to UserGuide
+- additional tags available for test cases
+- enabled user administration for development server type
+- password removed from the Java console
+
+09th August 2013
+
+- the passwords are encrypted
+- completed the User Management feature
+- issue #20 ; changed the user logging mechanism to work for NIS users as well
+- fix for issue #41 - status of testcase displayed as stopped in GUI and aborted in CLI
+- issue #19 ; issue #16 ;added a twister_demo.sql script in installer/packages; can be
+  used to create a demo database;the associated db.xml is updated for this database
+- fixed issue #57 - updated test_py_ssh_twist.py
+
+IMPORTANT: reinstall all components ( GUI, server, client, dependencies ) !
+
+06th August 2013
+
+- put back the ExecutionProcessWin.py in client/executionprocess directory
+
+02nd August 2013
+
+- fix for issue #37 - de-queue test cases for cli.py
+- fix for issue #42 - Testcase Filename contains '//' in CLI log
+- fix for issue #56 - cli.py version number not correctly reported
+- fix for issue #35 - log slider panel updated to show full messages
+- added test button for email configuration
+- added mechanism to backup the client log files
+- added mechanism to stop execution of the test cases if the pre-execution
+  script fails
+- exported internal variables twister_user, twister_ce_ip and twister_ep_os
+  they can be saved into DB
+- updated UserGuide document
+- applet changes for User Management prototype
+
+18th July 2013
+
+- issue #48 ; code changes to fix start_client for EP's where EP_HOST is commented out or there 
+  is no host specified
+- issue #47 ; corrected spelling issue
+- issue #44 ; code changes to show the last test case when the list of tests in long and one 
+   of them is set as setup test  
+
+17th July 2013
+
+- code changes to fix issues #45 and #46; new behaviour is: when a setup file fails, all setup files and normal
+  files that follow in that suite are SKIPPED. Only the teardown files are run. Also, when a setup file does
+  not pass, the suite is aborted. All statuses except PASS, in a setup file now are considered to fail.
+
+16th July 2013
+
+- updated start_client and epname.ini to introduce a new tag EP_HOST to allow
+  the user the specify on what machine is allowed to start an EP. The user
+  can specify hostname or IP address. If this tag is not set, the EP is allowed
+  to be started by edfault
+- added option to start the client in "silent" mode; no messages are printed
+- updated GUI for some minor fixes:
+             - labels resize
+             - reconfigured warnings
+             - changed uppercase project name
+             - http server port removed
+             - tc name field resized
+- updated User Guide
+
+INFO: the applet and client side were updated; so they have to be reinstalled			 
+
+15th July 2013
+
+- fix for start_client to avoind binding to localhost ( it will reject connections
+  from remote hosts )
+- fix for cli.py --users to discover the NIS users that have the Twister client
+   installed
+- removed the option "status" for cli.py
+- updated user guide document.
+
+12th July 2013
+
+- added fix for issue #26 ( server must be restarted to reflect the changes on epname.ini ).
+  With this fix, the newly added EP is get immediately available for cli usage. The GUI has to
+  be refreshed to get the new EP. No need to restart the server.
+- code rework for installer to install separately the dependencies. Now, there are 3 options for installer.
+  Install dependencies ( requires root access ), install server, install client. Issue #12 is covered
+  with this fix.
+- added a GUI fix to allow export/import of a solely suite
+- fix for issue #23 ( Save button is shown instead of Open button in pre/post execution open file dialog )
+- fix for issue #29 ( Clear log button should reconfirm from the user whether the logs should be erased ).
+  A confirmation window is presented.
+- added Build Date filed for applet in About window.  
+- updated the user guide document
+- INFO: the applet, server and clients were updated, so all of them have to be re-installad
+
+11th July 2013
+
+- added support to load/save suites from/in suite vault; a directory can contain predefined suite files that
+  can be loaded into a project file in GUI; the user has to define a path to the suites vault in
+  Configuration->Paths->"Predefined Suites Path"; that is the place where the predefined suites are search;
+  the user can exports a project file into the vault suites directory by doing project->File->"Export As Suite"
+- removed the deprecated file start_ep.py and updated installer
+- fixed an issue for Reporting page if the user is a NIS user
+- removed ENABLED flag from epname.ini file because is DEPRECATED
+
+10th July 2013
+
+- fixed a backend code issue for teardown files in sub-suites
+- added mechanism for automatic start of execution engines ( EPs ); the user can specify in GUI the EPs associated with a test 
+  bed and they are started automatically on client side even if they are enabled or not in eoname.ini
+- renamed start_ep to start_client on client side ( $HOME/twister/bin directory )
+
+09th July 2013
+
+- fixed a cli issue for queue test cases
+- fixed an applet issue; the first test case is not displayed while test are executed; the results are scrambled
+
+08th July 2013
+
+- fixed a cli issue for start/stop/details/stats
+- updated Java applet
+
+05th July 2013
+
+- added a mechanism to define setup/teardown script(s) per suite; the setup and teardown scripts are not included in reports 
+  ( not saved into database )
+- renamed the library files ( /lib directory )
+- fixed a Java build issue
+- fixed an issue in create_bug_report script
+
+03rd July 2013
+
+- replaced start_ce and start_httpserver scripts with start_server
+- added a mechanism to control execution of the test cases through CLI; the GUI is not mandatory anymore
+- added library for ssh; file is lib/TscSsh.py
+- added support for JUnit test cases; 
+- added a mechanism for automatic setup and teardown for every test case; file is lib/UnitTest.py
+- added support for NIS users
+- added wrapper for Ixia TCL library; the Ixia methods can be called in python using this wrapper. The libray file
+  with the wrappers can be found in lib/Ixia/IxPython.py
+- fixed issue #20
+- fixed issue #17
+- fixed issue #13
+- fixed issue #12
+- fixed issue #9
+- updated user guide
+- reworked the code for central engine
+- removed default email addresses from email.xml file
+
+WARNING: Installing this version might imply reconfiguring the framework; the older configuration files are not 100% compatible
+         with this version of framework
+
+31st May 2013
+
+- bug fix for the order of test cases when test suites contain a mix of test cases and suites
+- removed luxoft.com from the default email configuration
+- enhance to provide timestamp for start and end of test file in EP_CLI log
+- enhance to provide file attributes when browsing; provide sorting mechanism
+- the logs for pre and post execution scripts can be CE log accesible using CE rest API
+- added more internal variables available for saving into database:
+	- $twister_ce_hostname
+	- $twister_ep_hostname
+	- $twister_ce_python_revision
+	- $twister_ep_python_revision
+	- $twister_rf_fname - resource file name
+	- $twister_pf_fname - project file name
+- added STEP mechanism for debugging
+- updated documentation
+- changed window for global params definition and description
+
+17th May 2013 changes:
+
+- fixed issue in Configuration->TestBeds about editing property names/deleting the property
+  of a component under TestBed
+- fixed issue about test execution order incorrect if test suite contains a mix of test cases and test suites
+- fixed issue about editing regular expression in Configuration->PanicDetection
+- updated user guide
+- added an easy mechanism to update the description for plugins using a text file
+
+
+29th April 2013 changes:
+- bug fixes for GUI
+- bug fixes for Sniffer plugin
+
+04th April 2013 changes:
+- GUI changes to associate a suite to a test bed; the test bed is defined in GUI Configuration section
+  and it is associated with one or more EP's
+- minor fixes to GUI
+- implemented Jira plugin to integrate Twister with Jira bug tracking
+- implemented plugin for Twister scheduler; multiple users can schedule their execution suites
+- implemented a mechanism for traffic capture; a GUI plugin is available to display the captured packets
+- Jenkins plugin developed to integrate Twister with Jenkins CI
+- updated GUI for a better support of test beds
+- API to access defined test bed parameters
+- updated GUI to define global parameters
+- API to access defined global parameters
+- mechanism to allow multithreaded execution of a procedure inside test cases
+- enhanced telnet library
+- implemented a panic detection mechanism
+- added section to control Twister services; the user can customize what services to start for test cases execution
+- mechanism to allow test cases to share global objects; a test case can create an object as global ( e.g. a connection session ) and the following test cases have access to this object for usage
+- bug fixes
+- added binaries directory to store the compiled applet and the available plugins
+
+6th December 2012 changes:
+
+- updated the unit testing interface to be more user friendly and to offer more information
+- implemented a mechanism so the user can specify what are the libraries ( modules ) that has to
+  be imported by every suite. There is no point to send all the libraries ( modules ) to every 
+  suite, since it might not need the library ( module )
+- implemented a mechanism to save the CLI log per test case into the mysql database. This is very
+  usefull in finding the possible issues when a test case fails.
+- minor updates
+
+
+15th October 2012 changes:
+
+- implemented a mechanism to execute scripts before starting the test cases and after their execution.
+  The user can select the scripts using GUI to browse the files present on Twister server.
+- many GUI changes to make the interface much user friendly and to offer more information needed during
+  test case execution.
+- implemente a mechanism for unit testing. A test case can be selected and executed alone. There is no
+  need to define a suite with only one test case for that. The user selects the test from the available
+  list and choose to do unit testing.
+- plugin and backend code implemented for integration with Jira. By activating the Jira plugin, the
+  user can create Jira issues from GUI. The login information ( Jira server/user/password ... ) is
+  defined in GUI, inside the plugin
+- OpenFlow 1.0 module included in Twister. The module can be used to do conformance testing against
+  switches for OpenFlow protocol, version 1.0.1
+
+30th July 2012 changes:
+
+- implemented "stop on fail". If a test file fails, and the file is mandatory, and the "stop on fail"
+  flag is activated, the execution process stops. The files that are optional must not stop the
+  execution process if they fail. The "stop on fail" flag can be easily activated and deactivated.
+- implemented "run temporary", a mechanism that allows 1 or more files to be run several times,
+  without losing the stats from last run and without saving to database or sending e-mail report.
+- better REST interface
+- bug fixing.
+
+
+16th July 2012 changes:
+
+- implemented plugins for Central Engine and GUI
+- added SVN plugin
+- Central Engine REST interface for viewing logs and stats
+- added a mechanism to retrieve information from an external script to use it when the results are
+  saved in database ( e.g. get a build version from a device and use it when the testing results are
+  recorded in database ).
+
+
+5th July 2012 changes:
+
+- added support for multi tenancy
+- added plugins mechanism for GUI
+- updated user guide with information about plugins mechanism
+
+
+19th June 2012 Changes:
+
+- Send library file to execution process in zip format
+- Mechanism to pass execution options for a test case
+- GUI - added a few look & feel styles
+- GUI - fixed a few minor issues
+- database file configuration read when it's changed
+- User should be able to specify external editor for test cases
+- GUI - mechanism for pre-requisites file
+- Fix xmlrpc socket issues
